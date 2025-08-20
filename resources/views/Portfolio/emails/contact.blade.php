@@ -105,7 +105,7 @@
                 <div class="field-box">
                     <input type="text" name="name" placeholder="Full Name" required>
                     <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="text" name="phone" placeholder="Phone Number" required>
+                    <input type="text" name="phone" placeholder="Phone Number">
                     <input type="text" name="subject" placeholder="Email Subject" required>
                     <textarea name="message" placeholder="Your Message" required></textarea>
                 </div>
@@ -129,25 +129,67 @@
         $('#contact-form').on('submit', function(e){
             e.preventDefault();
 
+            let name    = $('input[name="name"]').val().trim();
+            let email   = $('input[name="email"]').val().trim();
+            let subject = $('input[name="subject"]').val().trim();
+            let message = $('textarea[name="message"]').val().trim();
+
+            if(name === "" && email === "" && subject === "" && message === ""){
+                $('#flash-message').css('background','#f88').text("Please fill out all required fields").fadeIn();
+                setTimeout(function(){ $('#flash-message').fadeOut(); }, 2000);
+                return;
+            }
+
+            if(name === ""){
+                $('#flash-message').css('background','#f88').text("Please enter your name").fadeIn();
+                setTimeout(function(){ $('#flash-message').fadeOut(); }, 2000);
+                return;
+            }
+
+            if(email === ""){
+                $('#flash-message').css('background','#f88').text("Please enter your email").fadeIn();
+                setTimeout(function(){ $('#flash-message').fadeOut(); }, 2000);
+                return;
+            }
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!emailPattern.test(email)){
+                $('#flash-message').css('background','#f88').text("Please enter a valid email").fadeIn();
+                setTimeout(function(){ $('#flash-message').fadeOut(); }, 2000);
+                return;
+            }
+
+            if(subject === ""){
+                $('#flash-message').css('background','#f88').text("Please enter a subject").fadeIn();
+                setTimeout(function(){ $('#flash-message').fadeOut(); }, 2000);
+                return;
+            }
+
+            if(message === ""){
+                $('#flash-message').css('background','#f88').text("Please enter your message").fadeIn();
+                setTimeout(function(){ $('#flash-message').fadeOut(); }, 2000);
+                return;
+            }
+
             $.ajax({
                 url: "{{ route('send.email') }}",
                 type: "POST",
                 data: $(this).serialize(),
                 beforeSend: function(){
-                    $('#flash-message').css('background','yellow').text("Sending...").fadeIn();
+                    $('#flash-message').css('background','green').text("Sending...").fadeIn();
                 },
                 success: function(response){
-                    $('#flash-message').css('background','yellow').text("Your message has been sent successfully!").fadeIn();
+                    $('#flash-message').css('background','yellow').text("Message sent successfully").fadeIn();
                     $('#contact-form')[0].reset();
                     setTimeout(function(){
                         $('#flash-message').fadeOut();
-                    }, 1000);
+                    }, 2000);
                 },
                 error: function(){
                     $('#flash-message').css('background','#f88').text("An error occurred while sending").fadeIn();
                     setTimeout(function(){
                         $('#flash-message').fadeOut();
-                    }, 1000);
+                    }, 2000);
                 }
             });
         });
