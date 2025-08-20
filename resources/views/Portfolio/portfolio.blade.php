@@ -8,7 +8,7 @@
     <title>Portfolio | My Works</title>
     <!-- boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" href="{{asset('assets/ico/favicon.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('assets/ico/favicon.jpeg')}}" type="image/x-icon">
     <!-- custom css -->
     <link rel="stylesheet" href="{{asset('assets/css/style_portfolio.css')}}">
 </head>
@@ -94,7 +94,7 @@
                         <img src="{{asset('assets/img/Ecommerce-Website-Design.png')}}" alt="">
                     </div>
                     <div class="img-item">
-                        <img src="{{asset('assets/img/hos_sys_2.png')}}" alt="">
+                        <img src="{{asset('assets/img/hos_sys_7.png')}}" alt="">
                     </div>
                     <div class="img-item">
                         <img src="{{asset('assets/img/hos_sys_3.png')}}" alt="">

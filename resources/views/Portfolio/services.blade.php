@@ -8,7 +8,7 @@
     <title>Portfolio | Services</title>
     <!-- boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" href="{{asset('assets/ico/favicon.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('assets/ico/favicon.jpeg')}}" type="image/x-icon">
     <!-- custom css -->
     <link rel="stylesheet" href="{{asset('assets/css/style_services.css')}}">
 </head>
