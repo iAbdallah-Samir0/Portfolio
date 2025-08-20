@@ -85,7 +85,7 @@
                 </div>
                 <div class="live-github">
                     <a href="#"><i class="bx bx-arrow-back"></i><span>Live Project</span></a>
-                    <a href="https://github.com/iAbdallah-Samir0/Portfolio"><i class="bx bxl-github"></i><span>Github Repository</span></a>
+                    <a href="https://github.com/iAbdallah-Samir0/Portfolio/tree/master"><i class="bx bxl-github"></i><span>Github Repository</span></a>
                 </div>
             </div>
         </div>
