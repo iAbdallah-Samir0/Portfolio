@@ -69,7 +69,7 @@
     <div class="home-img">
         <div class="img-box">
             <div class="img-item">
-                <img src="{{asset('assets/img/my-picture5.png')}}" alt="My picture" width="20px" height="20px" ">
+                <img src="{{asset('assets/img/my-picture9.png')}}" alt="My picture" width="20px" height="20px" ">
             </div>
         </div>
     </div>
