@@ -75,14 +75,17 @@
 
             <div class="portfolio-detail">
                 <p class="numb">03</p>
-                <h3>Backend Project</h3>
-                <p>Backend Project Backend Project Backend Project Backend Project Backend Project Backend Project Backend Project</p>
+                <h3>Personal Portfolio</h3>
+                <p>I designed and developed my personal portfolio website to showcase my projects, skills, and experience in web development.
+                    The portfolio was built with a focus on clean design, responsiveness, and performance optimization.
+                    It highlights my backend and frontend work, provides direct access to my GitHub repositories,
+                    and serves as a central place for potential employers or clients to learn more about me.</p>
                 <div class="tech">
-                    <p>PHP , Laravel , MySql</p>
+                    <p>HTML , CSS , JavaScript , PHP , Laravel</p>
                 </div>
                 <div class="live-github">
                     <a href="#"><i class="bx bx-arrow-back"></i><span>Live Project</span></a>
-                    <a href="#"><i class="bx bxl-github"></i><span>Github Repository</span></a>
+                    <a href="https://github.com/iAbdallah-Samir0/Portfolio"><i class="bx bxl-github"></i><span>Github Repository</span></a>
                 </div>
             </div>
         </div>
@@ -97,7 +100,7 @@
                         <img src="{{asset('assets/img/hos_sys_7.png')}}" alt="">
                     </div>
                     <div class="img-item">
-                        <img src="{{asset('assets/img/hos_sys_3.png')}}" alt="">
+                        <img src="{{asset('assets/img/my_portfolio_8.png')}}" alt="">
                     </div>
                 </div>
 

@@ -103,11 +103,11 @@
                 @csrf
                 <h2 class="heading">Contact <span>Me!</span></h2>
                 <div class="field-box">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="text" name="name" placeholder="Full Name*" required>
+                    <input type="email" name="email" placeholder="Email Address*" required>
                     <input type="text" name="phone" placeholder="Phone Number">
-                    <input type="text" name="subject" placeholder="Email Subject" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <input type="text" name="subject" placeholder="Email Subject*" required>
+                    <textarea name="message" placeholder="Your Message*" required></textarea>
                 </div>
                 <button type="submit" class="btn">Send Message</button>
             </form>
