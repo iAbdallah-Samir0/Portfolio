@@ -5,7 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Resume</title>
+{{--    <title>Portfolio | Resume</title>--}}
+
+    <!-- Meta Tags for SEO -->
+    <title>Abdallah Samir | Backend Developer Portfolio | Resume</title>
+    <meta name="description" content="I am Abdallah Samir, a Backend Developer specialized in PHP and Laravel. I provide professional web and application solutions. Explore my work and services.">
+    <meta name="keywords" content="Abdallah Samir, Backend Developer, PHP Developer, Laravel Developer, Web Development, Portfolio, Web Developer, Application Development">
+    <meta name="author" content="Abdallah Samir">
+
+    <!-- Open Graph (Social Media) -->
+    <meta property="og:title" content="Abdallah Samir | Backend Developer Portfolio">
+    <meta property="og:description" content="Backend Developer specialized in PHP and Laravel. Learn more about my work and services.">
+    <meta property="og:image" content="https://abdallahsamir.site/assets/img/my_portfolio_8.png">
+    <meta property="og:url" content="https://abdallahsamir.site/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Abdallah Samir | Backend Developer Portfolio">
+    <meta name="twitter:description" content="Backend Developer specialized in PHP and Laravel. Explore my work and services.">
+    <meta name="twitter:image" content="https://abdallahsamir.site/assets/img/my_portfolio_8.png">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://abdallahsamir.site/" />
+
+
     <!-- boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
