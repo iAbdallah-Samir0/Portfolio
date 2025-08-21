@@ -178,6 +178,22 @@
 <!-- custom js -->
 <script src="{{asset('assets/js/script.js')}}"></script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuIcon = document.querySelector('#menu-icon');
+        const navbar = document.querySelector('header nav');
+
+        if (menuIcon && navbar) {
+            menuIcon.addEventListener('click', () => {
+                menuIcon.classList.toggle('bx-x');
+                navbar.classList.toggle('active');
+                console.log("menu clicked!");
+            });
+        }
+    });
+</script>
+
+
 </body>
 
 </html>
