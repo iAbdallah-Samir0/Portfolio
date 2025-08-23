@@ -8,6 +8,7 @@
     border: none;
     outline: none;
     font-family: "Poppins", sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -20,14 +21,22 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
 }
 
 body {
     color: var(--white-color);
+    background: var(--bg-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-
-header{
+header {
     position: fixed;
     top: 0;
     left: 0;
@@ -42,7 +51,6 @@ header{
     opacity: 0;
 }
 
-
 header.active {
     animation: show-header 1.5s linear forwards;
     animation-delay: 1.2s;
@@ -55,11 +63,10 @@ header.active {
     }
 }
 
-
 .logo {
     font-size: 3rem;
     font-weight: 700;
-    color:var(--white-color);
+    color: var(--white-color);
 }
 
 nav a {
@@ -71,11 +78,11 @@ nav a {
 }
 
 nav a:hover,
-nav a.active{
+nav a.active {
     color: var(--main-color);
 }
 
-#menu-icon{
+#menu-icon {
     font-size: 4rem;
     display: none;
 }
@@ -87,7 +94,6 @@ nav a.active{
     display: flex;
 }
 
-
 .bars-box .bar {
     width: 100%;
     height: 100%;
@@ -95,7 +101,6 @@ nav a.active{
     animation: hide-bars 1.3s ease-in-out both;
     animation-delay: calc(0.1s * var(--i));
 }
-
 
 @keyframes hide-bars {
     0% {
@@ -105,7 +110,6 @@ nav a.active{
         transform: translateY(-100%);
     }
 }
-
 
 .bars-box.active .bar {
     animation: show-bars 1.3s ease-in-out both;
@@ -121,8 +125,6 @@ nav a.active{
     }
 }
 
-
-
 /*start section department*/
 section {
     position: absolute;
@@ -135,18 +137,17 @@ section {
 }
 
 section.active {
-    animation:show-content 1.5s linear forwards ;
+    animation: show-content 1.5s linear forwards;
     animation-delay: 1.6s;
 }
 
 @keyframes show-content {
-    100%{
+    100% {
         visibility: visible;
         opacity: 1;
         overflow: auto;
     }
 }
-
 
 .heading {
     font-size: 4.5rem;
@@ -158,8 +159,6 @@ section.active {
     color: var(--main-color);
 }
 /*end section department*/
-
-
 
 /*start portfolio department*/
 .portfolio-container {
@@ -211,7 +210,7 @@ section.active {
 }
 
 .portfolio-box .live-github a:hover {
-   color: var(--main-color);
+    color: var(--main-color);
 }
 
 .portfolio-box .live-github a:first-child {
@@ -221,7 +220,6 @@ section.active {
 .portfolio-box .live-github a:first-child i {
     transform: rotate(135deg);
 }
-
 
 .portfolio-box .live-github a span {
     position: absolute;
@@ -272,6 +270,8 @@ section.active {
     height: 100%;
     object-fit: contain;
     border-radius: 1rem;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .portfolio-box .navigation {
@@ -301,8 +301,6 @@ section.active {
     transition: all 0.3s ease;
 }
 
-
-
 .portfolio-box .navigation button:hover {
     background: var(--main-color);
     color: var(--second-bg-color);
@@ -323,9 +321,6 @@ section.active {
 }
 /*end portfolio department*/
 
-
-
-
 /* breakpoints */
 @media screen and (max-width: 1200px) {
     html {
@@ -337,7 +332,6 @@ section.active {
     header {
         padding: 2rem 4%;
     }
-
     section {
         padding: 10rem 4% 2rem;
     }
@@ -349,12 +343,10 @@ section.active {
     }
 }
 
-
 @media screen and (max-width: 768px) {
     #menu-icon {
         display: block;
     }
-
     nav {
         position: absolute;
         top: 100%;
@@ -367,45 +359,36 @@ section.active {
         text-align: center;
         display: none;
     }
-
     nav.active {
         display: block;
     }
-
     nav a {
         display: block;
         margin: 4rem 0;
     }
-
     .home {
         flex-direction: column-reverse;
         justify-content: center;
         gap: 2rem;
     }
-
     .home-img .img-box {
         width: 35rem;
         height: 35rem;
     }
-
     .resume-container,
     .portfolio-container,
     .contact-container {
         grid-template-columns: 1fr;
     }
-
     .resume-container {
         gap: 3rem;
     }
-
     .portfolio-container .portfolio-box:first-child {
         order: 1;
     }
-
     .contact-box .field-box {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
 
 @media screen and (max-width: 600px) {
@@ -413,9 +396,11 @@ section.active {
         width: 30rem;
         height: 30rem;
     }
-
     .contact-box .field-box {
         grid-template-columns: 1fr;
+    }
+    .home {
+        gap: 1.5rem;
     }
 }
 
@@ -433,23 +418,55 @@ section.active {
     .resume-detail.about .resume-item {
         text-align: center;
     }
-
     .home-detail .btn-sci {
         flex-direction: column-reverse;
     }
-
     .home-detail .btn-sci .sci {
         margin-left: 0;
         margin-bottom: 2rem;
     }
-
     .contact-box form {
         padding: 2.5rem 3rem 3.5rem;
     }
-
     .contact-box h2 {
         font-size: 3.5rem;
     }
 }
 
+@media screen and (max-width: 375px) {
+    .logo {
+        font-size: 2.2rem;
+    }
+    .home {
+        padding: 0 2%;
+    }
+    section {
+        padding: 10rem 2% 2rem;
+    }
+    header {
+        padding: 2rem 3%;
+    }
+}
 
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .home {
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .home-img .img-box {
+        width: 25rem;
+        height: 25rem;
+    }
+    section {
+        padding: 8rem 9% 2rem;
+    }
+}
+
+/* Fix for iOS Safari viewport height */
+@supports (-webkit-touch-callout: none) {
+    section {
+        min-height: -webkit-fill-available;
+    }
+}

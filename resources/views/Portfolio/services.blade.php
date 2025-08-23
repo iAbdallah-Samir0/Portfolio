@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{--    <title>Portfolio | Services</title>--}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
 
     <!-- Meta Tags for SEO -->
-    <title>Abdallah Samir | Backend Developer Portfolio | Services</title>
+    <title>Abdallah Samir | Backend Developer | Portfolio|Services</title>
     <meta name="description" content="I am Abdallah Samir, a Backend Developer specialized in PHP and Laravel. I provide professional web and application solutions. Explore my work and services.">
     <meta name="keywords" content="Abdallah Samir, Backend Developer, PHP Developer, Laravel Developer, Web Development, Portfolio, Web Developer, Application Development">
     <meta name="author" content="Abdallah Samir">
@@ -214,7 +213,54 @@
                 navbar.classList.toggle('active');
                 console.log("menu clicked!");
             });
+
+            // Close menu when clicking on nav links (Improve user experience)
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        menuIcon.classList.remove('bx-x');
+                        navbar.classList.remove('active');
+                    }
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 &&
+                    !navbar.contains(e.target) &&
+                    !menuIcon.contains(e.target)) {
+                    menuIcon.classList.remove('bx-x');
+                    navbar.classList.remove('active');
+                }
+            });
         }
+
+        // Handle viewport height changes (mobile address bar)
+        const setVH = () => {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        };
+
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(setVH, 100);
+        });
+
+        // Optimize performance for mobile devices
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Recalculate the sizes after changing the screen size
+                const homeImg = document.querySelector('.home-img .img-box');
+                if (homeImg && window.innerWidth <= 768) {
+                    homeImg.style.width = Math.min(350, window.innerWidth * 0.6) + 'px';
+                    homeImg.style.height = Math.min(350, window.innerWidth * 0.6) + 'px';
+                }
+            }, 100);
+        });
     });
 </script>
 

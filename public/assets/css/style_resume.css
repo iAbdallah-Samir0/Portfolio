@@ -8,6 +8,7 @@
     border: none;
     outline: none;
     font-family: "Poppins", sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -20,13 +21,22 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
 }
 
 body {
     color: var(--white-color);
+    background: var(--bg-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-
+/* Header */
 header{
     position: fixed;
     top: 0;
@@ -42,7 +52,6 @@ header{
     opacity: 0;
 }
 
-
 header.active {
     animation: show-header 1.5s linear forwards;
     animation-delay: 1.2s;
@@ -54,7 +63,6 @@ header.active {
         opacity: 1;
     }
 }
-
 
 .logo {
     font-size: 3rem;
@@ -80,15 +88,13 @@ nav a.active{
     display: none;
 }
 
-
-
+/* Bars Animation */
 .bars-box {
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
 }
-
 
 .bars-box .bar {
     width: 100%;
@@ -98,7 +104,6 @@ nav a.active{
     animation-delay: calc(0.1s * var(--i));
 }
 
-
 @keyframes hide-bars {
     0% {
         transform: translateY(0);
@@ -107,7 +112,6 @@ nav a.active{
         transform: translateY(-100%);
     }
 }
-
 
 .bars-box.active .bar {
     animation: show-bars 1.3s ease-in-out both;
@@ -123,10 +127,6 @@ nav a.active{
     }
 }
 
-
-
-
-
 /*start section department*/
 section {
     position: absolute;
@@ -137,7 +137,6 @@ section {
     opacity: 0;
     overflow: hidden;
 }
-
 
 section.active {
     animation:show-content 1.5s linear forwards ;
@@ -152,7 +151,6 @@ section.active {
     }
 }
 
-
 .heading {
     font-size: 4.5rem;
     text-align: center;
@@ -163,11 +161,6 @@ section.active {
     color: var(--main-color);
 }
 /*end section department*/
-
-
-
-
-
 
 /*start resume department*/
 .resume-container {
@@ -201,18 +194,15 @@ section.active {
     cursor: pointer;
 }
 
-
 .resume-box .resume-btn.active{
     border-color: var(--main-color);
     color: var(--main-color);
 }
 
-
 .resume-box .heading{
     font-size: 3.5rem;
     text-align: left;
 }
-
 
 .resume-detail {
     display: none;
@@ -222,7 +212,6 @@ section.active {
     display: block;
 }
 
-
 .resume-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -230,7 +219,6 @@ section.active {
     height: 45rem;
     overflow: auto;
 }
-
 
 .resume-list::-webkit-scrollbar {
     width: 7px;
@@ -244,7 +232,6 @@ section.active {
 .resume-list:hover::-webkit-scrollbar-thumb {
     background: var(--main-color);
 }
-
 
 .resume-list .resume-item {
     background: var(--second-bg-color);
@@ -264,13 +251,11 @@ section.active {
     font-size: 2.2rem;
 }
 
-
 .resume-item .company {
     position: relative;
     margin-left: 2rem;
     margin-bottom: 2rem;
 }
-
 
 .resume-item .company::before {
     content: '';
@@ -282,7 +267,6 @@ section.active {
     border-radius: 50%;
     margin-left: -2rem;
 }
-
 
 .resume-detail.skills .resume-list {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -305,7 +289,6 @@ section.active {
     color: var(--main-color);
 }
 
-
 .resume-detail.skills .resume-item span {
     position: absolute;
     top: -20%;
@@ -325,7 +308,6 @@ section.active {
     opacity: 1;
     transform: scale(1);
 }
-
 
 .resume-detail.about .resume-list {
     height: auto;
@@ -349,7 +331,6 @@ section.active {
 }
 /*end resume department*/
 
-
 /* breakpoints */
 @media screen and (max-width: 1200px) {
     html {
@@ -372,7 +353,6 @@ section.active {
         grid-template-columns: 1fr;
     }
 }
-
 
 @media screen and (max-width: 768px) {
     #menu-icon {
@@ -429,7 +409,6 @@ section.active {
     .contact-box .field-box {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
 
 @media screen and (max-width: 600px) {
@@ -476,3 +455,15 @@ section.active {
     }
 }
 
+/* Performance optimizations */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Fix for iOS Safari viewport height */
+@supports (-webkit-touch-callout: none) {
+    section {
+        min-height: -webkit-fill-available;
+    }
+}

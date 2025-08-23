@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{--    <title>Portfolio | Home</title>--}}
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- Meta Tags for SEO -->
-    <title>Abdallah Samir | Backend Developer Portfolio | Home</title>
+    <title>Abdallah Samir | Backend Developer | Portfolio|Home</title>
     <meta name="description" content="I am Abdallah Samir, a Backend Developer specialized in PHP and Laravel. I provide professional web and application solutions. Explore my work and services.">
     <meta name="keywords" content="Abdallah Samir, Backend Developer, PHP Developer, Laravel Developer, Web Development, Portfolio, Web Developer, Application Development">
     <meta name="author" content="Abdallah Samir">
@@ -30,7 +27,6 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://abdallahsamir.site/" />
 
-
     <!-- boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="{{asset('assets/ico/favicon.jpeg')}}" type="image/x-icon">
@@ -39,7 +35,6 @@
 </head>
 
 <body>
-
 <!--start header-->
 <header class="active">
     <a href="{{route('portfolio.home')}}" class="logo">Portfolio.</a>
@@ -54,7 +49,6 @@
 </header>
 <!--end header-->
 
-
 <!-- bars background -->
 <div class="bars-box active">
     <div class="bar" style="--i:6;"></div>
@@ -65,27 +59,25 @@
     <div class="bar" style="--i:1;"></div>
 </div>
 
-
 <!--start Home Section -->
 <section class="home active">
     <div class="home-detail">
         <h1>Abdallah Samir</h1>
-            <h2>I'm a
-                <span style="--i:4;" data-text="Software Engineer">Software Engineer</span>
-                <span style="--i:3;" data-text="Coder">Coder</span>
-                <span style="--i:2;"  data-text="Backend Developer">Backend Developer</span>
-                <span style="--i:1;" data-text="PHP Developer | Laravel">PHP Developer | Laravel</span>
-            </h2>
-            <p>Skilled Back-end developer who's passionate about his work,
-                learning new skills, and solving problems. Knowledgeable in testing and debugging processes.
-                Bringing forth expertise in the design, installation, testing, and maintenance of web systems.</p>
-            <div class="btn-sci">
+        <h2>I'm a
+            <span style="--i:4;" data-text="Software Engineer">Software Engineer</span>
+            <span style="--i:3;" data-text="Coder">Coder</span>
+            <span style="--i:2;" data-text="Backend Developer">Backend Developer</span>
+            <span style="--i:1;" data-text="PHP Developer | Laravel">PHP Developer | Laravel</span>
+        </h2>
+        <p>Skilled Back-end developer who's passionate about his work, learning new skills, and solving problems. Knowledgeable in testing and debugging processes. Bringing forth expertise in the design, installation, testing, and maintenance of web systems.</p>
+
+        <div class="btn-sci">
             <a href="{{asset('assets/cv/Abdallah-Samir-Resume.pdf')}}" download="Abdallah-Samir-Resume.pdf" class="btn">Download CV</a>
             <div class="sci">
-                <a href="https://github.com/iAbdallah-Samir0"><i class="bx bxl-github"></i> </a>
-                <a href="https://www.linkedin.com/in/abdallah-samir-745918224?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="bx bxl-linkedin"></i> </a>
-                <a href="mailto:abdallahsamir370@gmail.com"><i class="bx bxl-gmail"></i> </a>
-                <a href="https://wa.me/+2001155331309"><i class="bx bxl-whatsapp"></i> </a>
+                <a href="https://github.com/iAbdallah-Samir0"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/abdallah-samir-745918224?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="bx bxl-linkedin"></i></a>
+                <a href="mailto:abdallahsamir370@gmail.com"><i class="bx bxl-gmail"></i></a>
+                <a href="https://wa.me/+2001155331309"><i class="bx bxl-whatsapp"></i></a>
             </div>
         </div>
     </div>
@@ -94,21 +86,15 @@
     <div class="home-img">
         <div class="img-box">
             <div class="img-item">
-                <img src="{{asset('assets/img/my-picture9.png')}}" alt="My picture" width="20px" height="20px" ">
+                <img src="{{asset('assets/img/my-picture9.png')}}" alt="My picture" width="20px" height="20px">
             </div>
         </div>
     </div>
     <!--end Home img-->
-
 </section>
 <!--end Home Section -->
 
-
-
 <!-- custom js -->
-<script src="{{asset('assets/js/script.js')}}"></script>
-
-
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const menuIcon = document.querySelector('#menu-icon');
@@ -120,10 +106,55 @@
                 navbar.classList.toggle('active');
                 console.log("menu clicked!");
             });
+
+            // Close menu when clicking on nav links (Improve user experience)
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        menuIcon.classList.remove('bx-x');
+                        navbar.classList.remove('active');
+                    }
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 &&
+                    !navbar.contains(e.target) &&
+                    !menuIcon.contains(e.target)) {
+                    menuIcon.classList.remove('bx-x');
+                    navbar.classList.remove('active');
+                }
+            });
         }
+
+        // Handle viewport height changes (mobile address bar)
+        const setVH = () => {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        };
+
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(setVH, 100);
+        });
+
+        // Optimize performance for mobile devices
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Recalculate the sizes after changing the screen size
+                const homeImg = document.querySelector('.home-img .img-box');
+                if (homeImg && window.innerWidth <= 768) {
+                    homeImg.style.width = Math.min(350, window.innerWidth * 0.6) + 'px';
+                    homeImg.style.height = Math.min(350, window.innerWidth * 0.6) + 'px';
+                }
+            }, 100);
+        });
     });
 </script>
-
-
 </body>
 </html>

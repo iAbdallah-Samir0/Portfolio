@@ -30,3 +30,10 @@ Route::get('/portfolio-resume', [PortfolioController::class, 'resume'])->name('p
 Route::get('/portfolio-portfolio', [PortfolioController::class, 'portfolio'])->name('portfolio.portfolio');
 Route::get('/portfolio-contact', [PortfolioController::class, 'contact'])->name('portfolio.emails.contact');
 Route::post('/send-email', [ContactController::class, 'sendEmail'])->name('send.email');
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+    return "Cache Cleared!";
+});
